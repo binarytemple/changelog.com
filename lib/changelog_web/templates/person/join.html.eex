@@ -82,7 +82,7 @@
     <div class="form-element_wrap">
       <div class="form-element" style="text-align: center;">
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAAnzevzjdGT8igM" style="display: inline-block;"></div>
+        <div class="cf-turnstile" data-sitekey="<%=  turnstile_site_key() %>" style="display: inline-block;"></div>
       </div>
     </div>
 

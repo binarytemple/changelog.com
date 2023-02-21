@@ -6,7 +6,7 @@
 import Config
 
 config :changelog, ChangelogWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
   secret_key_base:
     SecretOrEnv.get(
       "SECRET_KEY_BASE",
@@ -28,6 +28,7 @@ config :changelog,
   plusplus_slug: SecretOrEnv.get("PLUSPLUS_SLUG"),
   plusplus_url: "https://changelog.supercast.com",
   turnstile_secret_key: SecretOrEnv.get("TURNSTILE_SECRET_KEY"),
+  turnstile_site_key: SecretOrEnv.get("TURNSTILE_SITE_KEY", "0x4AAAAAAAAnzevzjdGT8igM"),
   slack_invite_api_token: SecretOrEnv.get("SLACK_INVITE_API_TOKEN"),
   slack_app_api_token: SecretOrEnv.get("SLACK_APP_API_TOKEN"),
   # 60 = one minute, 3600 = one hour, 86,400 = one day, 604,800 = one week, 31,536,000 = one year
@@ -79,7 +80,7 @@ config :waffle,
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, [default_scope: "user:email"]},
+    github: {Ueberauth.Strategy.Github, [default_scope: "user:email", send_redirect_uri: false]},
     twitter: {Ueberauth.Strategy.Twitter, []}
   ]
 

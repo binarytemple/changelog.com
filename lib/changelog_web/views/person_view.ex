@@ -132,4 +132,7 @@ defmodule ChangelogWeb.PersonView do
   end
 
   def profile_url(person), do: external_url(person)
+
+  def turnstile_site_key(), do: Application.fetch_env!(:changelog, :turnstile_site_key)
+
 end

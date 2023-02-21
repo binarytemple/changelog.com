@@ -75,7 +75,7 @@ defmodule ChangelogWeb.Endpoint do
     if Mix.env() == :prod do
       ".changelog.com"
     else
-      System.get_env("HOST", "localhost")
+      "." <>  Application.get_env( :changelog, ChangelogWeb.Endpoint)[:url][:host]
     end
 
   plug Plug.Session,

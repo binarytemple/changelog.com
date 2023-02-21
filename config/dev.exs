@@ -3,7 +3,7 @@ import Config
 port = 4000
 config :changelog, ChangelogWeb.Endpoint,
   http: [port: port],
-  url: [host: System.get_env("HOST", "localhost")],
+  url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
   check_origin: false,
   static_url: [path: "/static"],
   debug_errors: true,
