@@ -2,10 +2,11 @@ import Config
 
 port = 4000
 config :changelog, ChangelogWeb.Endpoint,
+  
   http: [port: port],
   url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
   check_origin: false,
-  static_url: [path: "/static"],
+  static_url: [ scheme: "https",  path: "/static", port: 443],
   debug_errors: true,
   code_reloader: true,
   cache_static_lookup: false,

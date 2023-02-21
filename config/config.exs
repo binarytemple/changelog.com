@@ -7,6 +7,7 @@ import Config
 
 config :changelog, ChangelogWeb.Endpoint,
   url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
+  static_url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
   secret_key_base:
     SecretOrEnv.get(
       "SECRET_KEY_BASE",
