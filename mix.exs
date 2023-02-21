@@ -64,7 +64,7 @@ defmodule Changelog.Mixfile do
       # see also https://github.com/ueberauth/ueberauth/issues/143
       {:oauther, "~> 1.2"},
       {:ueberauth, "~> 0.9.0", override: true},
-      {:ueberauth_github, "~> 0.4"},
+      {:ueberauth_github, "~> 0.8"},
       {:ueberauth_twitter, "~> 0.4"},
       {:ex_machina, "~> 2.0"},
       {:sentry, "~> 8.0"},
@@ -75,7 +75,8 @@ defmodule Changelog.Mixfile do
       {:shopify, "~> 0.4"},
       {:id3vx, "~> 0.0.1-rc6"},
       {:credo, "~> 1.6.4", only: [:dev, :test], runtime: false},
-      {:mock, "~> 0.3.0", only: :test}
+      {:mock, "~> 0.3.0", only: :test},
+      {:rexbug, "~> 0.6.0"}
     ]
   end
 
