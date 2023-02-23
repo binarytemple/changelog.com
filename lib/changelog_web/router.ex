@@ -5,7 +5,25 @@ defmodule ChangelogWeb.Router do
 
   if Mix.env() == :dev do
     forward "/sent_emails", Bamboo.SentEmailViewerPlug
+
+    import Phoenix.LiveDashboard.Router
+
+    scope "/" do
+      pipe_through :browser
+      live_dashboard "/dashboard"
+    end
+
   end
+
+
+
+
+
+
+
+
+
+
 
   # should be used before :browser pipeline to avoid auth and cache headers
   pipeline :public do

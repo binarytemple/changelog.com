@@ -2,7 +2,7 @@ defmodule SecretOrEnv do
   require Logger
 
   def get(secret) do
-    get(secret, "")
+    get(secret, :unset)
   end
 
   def get(secret, default_value) do
@@ -21,7 +21,11 @@ defmodule SecretOrEnv do
           Logger.info("#{secret} read from environment variable")
         end
 
-        System.get_env(secret, default_value)
+        if default_value == :unset do
+          System.fetch_env!(secret)
+        else
+          System.get_env(secret, default_value)
+        end
     end
   end
 end

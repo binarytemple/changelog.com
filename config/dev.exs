@@ -2,8 +2,8 @@ import Config
 
 port = 4000
 config :changelog, ChangelogWeb.Endpoint,
-  
   http: [port: port],
+  live_view: [signing_salt:  SecretOrEnv.get("SECRET_SALT")],
   url: [host: SecretOrEnv.get("CHANGELOG_HOST","localhost")],
   check_origin: false,
   static_url: [ scheme: "https",  path: "/static", port: 443],
@@ -27,7 +27,7 @@ if System.get_env("CODESPACES_WEB") do
 end
 
 # Live reloading is opt-in
-if System.get_env("LIVE_RELOAD") do
+if System.get_env("LIVE_RELOAD", nil) do
   config :changelog, ChangelogWeb.Endpoint,
     live_reload: [
       patterns: [
@@ -60,7 +60,7 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # in dev route direct to S3, in prod route through CDN
-config :waffle, asset_host: SecretOrEnv.get("AWS_UPLOADS_HOST")
+config :waffle, asset_host: SecretOrEnv.get("AWS_UPLOADS_HOST",nil)
 
 config :changelog, Changelog.Repo,
   adapter: Ecto.Adapters.Postgres,

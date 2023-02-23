@@ -6,6 +6,8 @@ defmodule ChangelogWeb.Endpoint do
     # or list of options
     websocket: true
 
+  socket "/live", Phoenix.LiveView.Socket
+
   plug ChangelogWeb.Plug.HealthCheck
 
   plug Plug.Static,

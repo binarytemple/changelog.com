@@ -76,7 +76,10 @@ defmodule Changelog.Mixfile do
       {:id3vx, "~> 0.0.1-rc6"},
       {:credo, "~> 1.6.4", only: [:dev, :test], runtime: false},
       {:mock, "~> 0.3.0", only: :test},
-      {:rexbug, "~> 0.6.0"}
+      {:rexbug, "~> 0.6.0"},
+      {:phoenix_live_dashboard, "~> 0.7"},
+      {:ecto_probe, path: "../bt/ecto_probe"}
+
     ]
   end
 
