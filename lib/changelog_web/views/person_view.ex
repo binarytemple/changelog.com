@@ -70,14 +70,17 @@ defmodule ChangelogWeb.PersonView do
   end
 
   def is_subscribed(person, %Podcast{id: id}) do
+
     person
     |> Person.preload_subscriptions()
     |> Map.get(:subscriptions)
     |> Enum.any?(&(&1.podcast_id == id))
+
   end
 
   def is_subscribed(person, newsletter) do
-    Craisin.Subscriber.is_subscribed(newsletter.list_id, person.email)
+true
+    # Craisin.Subscriber.is_subscribed(newsletter.list_id, person.email)
   end
 
   def is_staff(person), do: String.match?(person.email, ~r/@changelog.com/)

@@ -18,7 +18,7 @@ config :changelog, ChangelogWeb.Endpoint,
 
 config :changelog,
   buffer_token: SecretOrEnv.get("BUFFER_TOKEN",nil),
-  cm_api_token: Base.encode64("#{SecretOrEnv.get("CM_API_TOKEN",nil)}:x"),
+  cm_api_token: SecretOrEnv.get("CM_API_TOKEN"),
   github_api_token: SecretOrEnv.get("GITHUB_API_TOKEN",nil),
   hn_user: SecretOrEnv.get("HN_USER",nil),
   hn_pass: SecretOrEnv.get("HN_PASS",nil),

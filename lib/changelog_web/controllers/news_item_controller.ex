@@ -76,7 +76,7 @@ defmodule ChangelogWeb.NewsItemController do
   def top(conn, params), do: top(conn, Map.merge(params, %{"filter" => "week"}))
 
   def new(conn = %{assigns: %{current_user: user}}, _params) do
-    changeset = NewsItem.submission_changeset(%NewsItem{})
+     changeset = NewsItem.submission_changeset(%NewsItem{})
 
     conn
     |> assign(:changeset, changeset)
@@ -120,7 +120,6 @@ defmodule ChangelogWeb.NewsItemController do
 
       slug == hashid ->
         redirect(conn, to: Routes.news_item_path(conn, :show, NewsItem.slug(item)))
-
       true ->
         item =
           item
