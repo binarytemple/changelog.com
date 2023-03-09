@@ -40,12 +40,8 @@ npm-debug.log*
 /import/cookies.yml
 /cover
 
-# .envrc is likely to contain user-specific secrets, such as CIRCLE_TOKEN
-.envrc
 # .envrc equivalent
 .env
-# like .envrc, but for asdf
-.tool-versions
 
 # Local binaries
 bin
